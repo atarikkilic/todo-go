@@ -12,12 +12,12 @@ func helloWorld(c *gin.Context) {
 
 }
 
-func Admin() *gin.Engine {
+func Admin(e *gin.Engine) {
 
-	r := gin.Default()
+	//r := gin.Default()
 
-	r.GET("/admin", helloWorld)
+	e.GET("/admin", helloWorld)
 
-	return r
+	// return r
 
 }
