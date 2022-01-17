@@ -1,22 +1,14 @@
 package main
 
 import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"server/routes/admin"
 )
-
-func helloWorld(c *gin.Context) {
-
-	c.String(http.StatusOK, "hello world")
-
-}
 
 func main() {
 
-	r := gin.Default()
+	// r := gin.Default()
 
-	r.GET("/", helloWorld)
+	r := admin.Admin()
 
 	r.Run(":3000")
 
