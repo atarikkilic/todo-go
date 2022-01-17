@@ -12,15 +12,23 @@ func helloWorld(c *gin.Context) {
 
 }
 
-func helloJson(c *gin.Context) {
+type create_json struct {
+	Name string
 
-	data := gin.H{
+	Message string
 
-		"name": "Tarik",
+	Age int
+}
 
-		"message": "Hello World",
+func json_struct(c *gin.Context) {
 
-		"age": 24,
+	data := create_json{
+
+		Name: "Tarik",
+
+		Message: "Hello World",
+
+		Age: 24,
 	}
 
 	c.JSON(http.StatusOK, data)
@@ -33,8 +41,9 @@ func Admin(e *gin.Engine) {
 
 	e.GET("/admin", helloWorld)
 
-	e.GET("/admin/json", helloJson)
+	//e.GET("/admin/json", helloJson)
 
+	e.GET("/admin/json_struct", json_struct)
 	// return r
 
 }
