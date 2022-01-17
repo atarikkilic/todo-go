@@ -1,12 +1,14 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	//"github.com/gin-gonic/gin"
 
+	"server/routes"
 	"server/routes/admin"
 	"server/routes/web"
 )
 
+/*
 type Option func(*gin.Engine)
 
 var options = []Option{}
@@ -30,16 +32,16 @@ func arrange() *gin.Engine {
 	return r
 
 }
-
+*/
 func main() {
 
 	// r := gin.Default()
 
 	// r := admin.Admin()
 
-	include(admin.Admin, web.Web)
+	routes.Include(admin.Admin, web.Web)
 
-	r := arrange()
+	r := routes.Arrange()
 
 	r.Run(":3000")
 
